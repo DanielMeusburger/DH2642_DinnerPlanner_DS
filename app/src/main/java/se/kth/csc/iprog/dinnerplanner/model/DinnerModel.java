@@ -3,7 +3,7 @@ package se.kth.csc.iprog.dinnerplanner.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class DinnerModel {
+public class DinnerModel implements IDinnerModel{
 	
 
 	Set<Dish> dishes = new HashSet<Dish>();
@@ -94,7 +94,45 @@ public class DinnerModel {
 		}
 		return result;
 	}
-	
-	
 
+
+	@Override
+	public int getNumberOfGuests() {
+		return 0;
+	}
+
+	@Override
+	public void setNumberOfGuests(int numberOfGuests) {
+
+	}
+
+	@Override
+	public Dish getSelectedDish(int type) {
+		return null;
+	}
+
+	@Override
+	public Set<Dish> getFullMenu() {
+		return null;
+	}
+
+	@Override
+	public Set<Ingredient> getAllIngredients() {
+		return null;
+	}
+
+	@Override
+	public float getTotalMenuPrice() {
+		return 0;
+	}
+
+	@Override
+	public void addDishToMenu(Dish dish) {
+
+	}
+
+	@Override
+	public void removeDishFromMenu(Dish dish) {
+
+	}
 }
