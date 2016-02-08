@@ -7,6 +7,7 @@ public class DinnerModel implements IDinnerModel{
 	
 
 	Set<Dish> dishes = new HashSet<Dish>();
+	private int numberOfGuests;
 	
 	/**
 	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
@@ -98,22 +99,26 @@ public class DinnerModel implements IDinnerModel{
 
 	@Override
 	public int getNumberOfGuests() {
-		return 0;
+		return numberOfGuests;
 	}
 
 	@Override
 	public void setNumberOfGuests(int numberOfGuests) {
-
+		this.numberOfGuests = numberOfGuests;
 	}
 
 	@Override
 	public Dish getSelectedDish(int type) {
-		return null;
+		Set<Dish> selectedDish = getDishesOfType(type);
+		if(selectedDish != null && !selectedDish.isEmpty()){
+			return selectedDish.iterator().next();
+		}
+			return null;
 	}
 
 	@Override
 	public Set<Dish> getFullMenu() {
-		return null;
+		return getDishes();
 	}
 
 	@Override
