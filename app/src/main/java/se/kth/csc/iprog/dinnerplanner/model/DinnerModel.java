@@ -1,6 +1,7 @@
 package se.kth.csc.iprog.dinnerplanner.model;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class DinnerModel implements IDinnerModel{
@@ -8,6 +9,7 @@ public class DinnerModel implements IDinnerModel{
 
 	Set<Dish> dishes = new HashSet<Dish>();
 	private int numberOfGuests;
+	private Set<Dish> fullMenu = new HashSet<Dish>();
 	
 	/**
 	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
@@ -118,13 +120,25 @@ public class DinnerModel implements IDinnerModel{
 
 	@Override
 	public Set<Dish> getFullMenu() {
-		return getDishes();
+		return fullMenu;
 	}
 
 	@Override
 	public Set<Ingredient> getAllIngredients() {
+		Iterator<Dish> iterator = fullMenu.iterator();
+		Set<Ingredient> allIngredients = new HashSet<Ingredient>();
+		while(iterator.hasNext()) {
+			Dish menu = iterator.next();
+			//allIngredients.addAll(menu.getIngredients());
+			Set<Ingredient> ingredients = menu.getIngredients();
+			addSimilarIngredients(ingredients);
+			//To-Do
+		}
 		return null;
 	}
+
+
+
 
 	@Override
 	public float getTotalMenuPrice() {
@@ -133,11 +147,27 @@ public class DinnerModel implements IDinnerModel{
 
 	@Override
 	public void addDishToMenu(Dish dish) {
-
+		removeDishFromMenu(dish);
+		fullMenu.add(dish);
 	}
 
 	@Override
 	public void removeDishFromMenu(Dish dish) {
+		int type = dish.getType();
+		Iterator<Dish> iterator = fullMenu.iterator();
+		while(iterator.hasNext()) {
+			Dish menu = iterator.next();
+			if(menu.getType() == type){
+				iterator.remove();
+			}
+		}
+	}
 
+	private void addSimilarIngredients(Set<Ingredient> ingredients) {
+		Iterator<Ingredient> iterator = ingredients.iterator();
+		while(iterator.hasNext()) {
+			Ingredient ingredient = iterator.next();
+			//To-Do
+		}
 	}
 }
