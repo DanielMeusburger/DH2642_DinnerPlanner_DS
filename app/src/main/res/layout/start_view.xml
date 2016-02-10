@@ -3,12 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:id="@+id/this_is_example_view_id" >
+    android:id="@+id/this_is_start_view_id" >
 
     <TextView
-        android:id="@+id/example_text"
+        android:id="@+id/start_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:singleLine="false"
+        android:textSize="20sp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_start"
+        android:layout_marginBottom="112dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#801e04"
+        android:textColor="#ffffff"
+        android:onClick="callCourseSelection"/>
 
 </RelativeLayout>

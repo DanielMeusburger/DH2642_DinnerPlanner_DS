@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import se.kth.csc.iprog.dinnerplanner.android.view.ExampleView;
+import se.kth.csc.iprog.dinnerplanner.android.view.StartView;
 
 
 public class MainActivity extends Activity {
@@ -20,7 +21,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         // Creating the view class instance
-        ExampleView mainView = new ExampleView(findViewById(R.id.this_is_example_view_id));
+        StartView mainView = new StartView(findViewById(R.id.this_is_start_view_id));
     }
-
 }
