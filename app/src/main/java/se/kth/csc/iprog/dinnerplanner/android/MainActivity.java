@@ -1,10 +1,13 @@
 package se.kth.csc.iprog.dinnerplanner.android;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import se.kth.csc.iprog.dinnerplanner.android.view.CourseSelectionActivity;
 import se.kth.csc.iprog.dinnerplanner.android.view.ExampleView;
 import se.kth.csc.iprog.dinnerplanner.android.view.StartView;
 
@@ -22,5 +25,10 @@ public class MainActivity extends Activity {
 
         // Creating the view class instance
         StartView mainView = new StartView(findViewById(R.id.this_is_start_view_id));
+    }
+
+    public void callCourseSelection(View view) {
+        Intent intent = new Intent(this, CourseSelectionActivity.class);
+        startActivity(intent);
     }
 }

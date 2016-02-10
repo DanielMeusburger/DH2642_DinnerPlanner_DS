@@ -1,5 +1,6 @@
 package se.kth.csc.iprog.dinnerplanner.android.view;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.text.Html;
 import android.view.View;
@@ -25,10 +26,4 @@ public class StartView{
         TextView textArea = (TextView) view.findViewById(R.id.start_text);
         textArea.setText(Html.fromHtml(htmlText));
     }
-
-    public void callCourseSelection(View view) {
-        //Intent intent = new Intent(se.kth.csc.iprog.dinnerplanner.android.this, CourseSelectionActivity.class);
-        //startActivity(intent);
-    }
-
 }
