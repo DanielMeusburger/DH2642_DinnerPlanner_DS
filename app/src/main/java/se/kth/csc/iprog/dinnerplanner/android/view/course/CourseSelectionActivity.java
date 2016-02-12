@@ -1,19 +1,34 @@
-package se.kth.csc.iprog.dinnerplanner.android.view;
+package se.kth.csc.iprog.dinnerplanner.android.view.course;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import se.kth.csc.iprog.dinnerplanner.android.R;
 
-public class CourseSelectionActivity extends Activity {
+public class CourseSelectionActivity extends Activity implements AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_selection);
+        setSpinnerValues();
     }
+
+    private void setSpinnerValues() {
+        Spinner spinner = (Spinner) findViewById(R.id.participants_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.participants_spinner, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,5 +50,16 @@ public class CourseSelectionActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Spinner spinner = (Spinner) findViewById(R.id.participants_spinner);
+        spinner.setOnItemSelectedListener(this);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

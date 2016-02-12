@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.CourseSelectionActivity"
+            android:name=".view.course.CourseSelectionActivity"
             android:label="@string/title_activity_course_selection"
             android:parentActivityName=".MainActivity" >
             <meta-data

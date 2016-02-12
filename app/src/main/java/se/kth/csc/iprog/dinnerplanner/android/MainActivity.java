@@ -3,12 +3,9 @@ package se.kth.csc.iprog.dinnerplanner.android;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
-import se.kth.csc.iprog.dinnerplanner.android.view.CourseSelectionActivity;
-import se.kth.csc.iprog.dinnerplanner.android.view.ExampleView;
+import se.kth.csc.iprog.dinnerplanner.android.view.course.CourseSelectionActivity;
 import se.kth.csc.iprog.dinnerplanner.android.view.StartView;
 
 
