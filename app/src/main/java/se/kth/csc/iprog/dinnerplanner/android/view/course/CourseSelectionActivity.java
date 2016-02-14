@@ -24,13 +24,15 @@ public class CourseSelectionActivity extends Activity implements OnItemSelectedL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_selection);
         setSpinnerValues();
-        setStarterScroll();
+        setStarterScroll(R.id.linear_starter);
+        setStarterScroll(R.id.linear_maincourse);
+        setStarterScroll(R.id.linear_dessert);
     }
 
-    private void setStarterScroll(){
+    private void setStarterScroll(int linearId){
         int[] drawables = {R.drawable.icecream,R.drawable.meatballs,R.drawable.toast,R.drawable.bakedbrie};
 
-        LinearLayout layout = (LinearLayout) findViewById(R.id.linear_starter);
+        LinearLayout layout = (LinearLayout) findViewById(linearId);
         for (int i = 0; i < drawables.length; i++) {
             ImageView imageView = new ImageView(this);
             imageView.setId(i);

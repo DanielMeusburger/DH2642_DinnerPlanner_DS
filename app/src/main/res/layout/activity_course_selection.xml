@@ -1,3 +1,6 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="wrap_content" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -75,8 +78,8 @@
     </TextView>
     <HorizontalScrollView
         android:id="@+id/horizontalscroll_starter"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:fillViewport="true"
         android:maxHeight="100px"
@@ -92,4 +95,76 @@
             >
         </LinearLayout>
     </HorizontalScrollView>
+    <TextView
+        android:id="@+id/id_maincourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Course"
+        android:layout_alignParentLeft="true"
+        android:textSize="9pt"
+        android:layout_below="@id/horizontalscroll_starter"
+        android:paddingTop="10dp"
+        android:textStyle="bold"
+        >
+    </TextView>
+    <HorizontalScrollView
+        android:id="@+id/horizontalscroll_maincourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:fillViewport="true"
+        android:maxHeight="100px"
+        android:layout_below="@+id/id_maincourse">
+
+        <LinearLayout
+            android:id="@+id/linear_maincourse"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:scaleType="fitCenter"
+            android:baselineAligned="true"
+            >
+        </LinearLayout>
+    </HorizontalScrollView>
+    <TextView
+        android:id="@+id/id_dessert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dessert"
+        android:layout_alignParentLeft="true"
+        android:textSize="9pt"
+        android:layout_below="@id/horizontalscroll_maincourse"
+        android:paddingTop="10dp"
+        android:textStyle="bold"
+        >
+    </TextView>
+    <HorizontalScrollView
+        android:id="@+id/horizontalscroll_dessert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:fillViewport="true"
+        android:maxHeight="100px"
+        android:layout_below="@+id/id_dessert">
+
+        <LinearLayout
+            android:id="@+id/linear_dessert"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:scaleType="fitCenter"
+            android:baselineAligned="true"
+            >
+        </LinearLayout>
+    </HorizontalScrollView>
+    <Button
+        android:layout_height="50dp"
+        android:text="@string/button_create"
+        android:layout_width="96dp"
+        android:layout_centerHorizontal="true"
+        android:background="#801e04"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/horizontalscroll_dessert"
+        />
 </RelativeLayout>
+</ScrollView>
