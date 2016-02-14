@@ -12,8 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import se.kth.csc.iprog.dinnerplanner.android.R;
+import se.kth.csc.iprog.dinnerplanner.android.view.StartView;
 
 public class CourseSelectionActivity extends Activity implements OnItemSelectedListener {
 
@@ -24,25 +26,7 @@ public class CourseSelectionActivity extends Activity implements OnItemSelectedL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_selection);
         setSpinnerValues();
-        setStarterScroll(R.id.linear_starter);
-        setStarterScroll(R.id.linear_maincourse);
-        setStarterScroll(R.id.linear_dessert);
-    }
-
-    private void setStarterScroll(int linearId){
-        int[] drawables = {R.drawable.icecream,R.drawable.meatballs,R.drawable.toast,R.drawable.bakedbrie};
-
-        LinearLayout layout = (LinearLayout) findViewById(linearId);
-        for (int i = 0; i < drawables.length; i++) {
-            ImageView imageView = new ImageView(this);
-            imageView.setId(i);
-            imageView.setPadding(5, 5, 5, 5);
-            imageView.setImageBitmap(BitmapFactory.decodeResource(
-                    getResources(), drawables[i]));
-
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            layout.addView(imageView);
-        }
+        CourseDownView mainView = new CourseDownView(findViewById(R.id.this_is_course_down_view_id));
     }
 
     private void setSpinnerValues() {
@@ -51,7 +35,7 @@ public class CourseSelectionActivity extends Activity implements OnItemSelectedL
                 R.array.participants_spinner, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        spinner.setSelection(1);
+        //spinner.setSelection(1);
         spinner.setOnItemSelectedListener(this);
     }
 
