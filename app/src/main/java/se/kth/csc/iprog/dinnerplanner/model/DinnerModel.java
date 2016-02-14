@@ -164,10 +164,9 @@ public class DinnerModel implements IDinnerModel{
 	}
 
 	private void addSimilarIngredients(Set<Ingredient> ingredients) {
-		Iterator<Ingredient> iterator = ingredients.iterator();
-		while(iterator.hasNext()) {
-			Ingredient ingredient = iterator.next();
-			//To-Do
+		if(ingredients != null && !ingredients.isEmpty())
+		for(Ingredient ingredirent : ingredients){
+		 //TODO
 		}
 	}
 }
