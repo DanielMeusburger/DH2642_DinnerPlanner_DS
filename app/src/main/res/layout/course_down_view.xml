@@ -24,8 +24,13 @@
         android:fillViewport="true"
         android:maxHeight="100px"
         android:layout_below="@+id/id_starter">
-
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/id_linear_outer_starter">
+        </LinearLayout>
+        <!--<LinearLayout
             android:id="@+id/linear_starter"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -33,7 +38,7 @@
             android:scaleType="fitCenter"
             android:baselineAligned="true"
             >
-        </LinearLayout>
+        </LinearLayout>-->
     </HorizontalScrollView>
     <TextView
         android:id="@+id/id_maincourse"
@@ -57,6 +62,12 @@
         android:layout_below="@+id/id_maincourse">
 
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/id_linear_outer_main_course">
+        </LinearLayout>
+        <!--<LinearLayout
             android:id="@+id/linear_maincourse"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -64,7 +75,7 @@
             android:scaleType="fitCenter"
             android:baselineAligned="true"
             >
-        </LinearLayout>
+        </LinearLayout>-->
     </HorizontalScrollView>
     <TextView
         android:id="@+id/id_dessert"
@@ -88,6 +99,12 @@
         android:layout_below="@+id/id_dessert">
 
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/id_linear_outer_dessert">
+        </LinearLayout>
+        <!--<LinearLayout
             android:id="@+id/linear_dessert"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -95,7 +112,7 @@
             android:scaleType="fitCenter"
             android:baselineAligned="true"
             >
-        </LinearLayout>
+        </LinearLayout>-->
     </HorizontalScrollView>
     <Button
         android:layout_height="50dp"
@@ -106,5 +123,4 @@
         android:textColor="#ffffff"
         android:layout_below="@+id/horizontalscroll_dessert"
         />
-
 </RelativeLayout>

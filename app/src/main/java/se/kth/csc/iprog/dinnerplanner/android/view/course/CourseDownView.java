@@ -3,6 +3,7 @@ package se.kth.csc.iprog.dinnerplanner.android.view.course;
 import android.app.Activity;
 import android.graphics.BitmapFactory;
 import android.text.Html;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,12 +19,34 @@ public class CourseDownView {
 
     public CourseDownView(View view) {
         this.view = view;
-        setStarterScroll(R.id.linear_starter);
-        setStarterScroll(R.id.linear_maincourse);
-        setStarterScroll(R.id.linear_dessert);
+
+        setHorizontalCourseMenuScroll(R.id.id_linear_outer_starter);
+        setHorizontalCourseMenuScroll(R.id.id_linear_outer_main_course);
+        setHorizontalCourseMenuScroll(R.id.id_linear_outer_dessert);
     }
 
-    private void setStarterScroll(int linearId){
+    /**
+     * Inflates horziontal_course_menu.xml layout and add images and text dynamically in the inner linear layout
+     * Finally it is added to the outer linear layout in horizontal scroll view
+     * @param linearId
+     */
+    private void setHorizontalCourseMenuScroll(int linearId) {
+        LinearLayout innerLayout = (LinearLayout) view.findViewById(linearId);
+        LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
+
+        int[] drawables = {R.drawable.icecream, R.drawable.meatballs, R.drawable.toast, R.drawable.bakedbrie};
+        for (int i = 0; i < drawables.length; i++) {
+            LinearLayout childView = (LinearLayout) inflater.inflate(R.layout.horziontal_course_menu, null);
+            ImageView menu_image = (ImageView) childView.findViewById(R.id.menu_image);
+            menu_image.setImageResource(drawables[i]);
+
+            TextView menu_text = (TextView) childView.findViewById(R.id.id_menu_text);
+            menu_text.setText("LaIce");
+
+            innerLayout.addView(childView);
+        }
+    }
+    /*private void setStarterScroll(int linearId){
         int[] drawables = {R.drawable.icecream,R.drawable.meatballs,R.drawable.toast,R.drawable.bakedbrie};
         LinearLayout layout = (LinearLayout) view.findViewById(linearId);
         for (int i = 0; i < drawables.length; i++) {
@@ -37,5 +60,5 @@ public class CourseDownView {
             layout.addView(imageView);
         }
 
-    }
+    }*/
 }
