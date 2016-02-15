@@ -1,30 +1,22 @@
 package se.kth.csc.iprog.dinnerplanner.android;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import se.kth.csc.iprog.dinnerplanner.android.view.course.CourseDownView;
-import se.kth.csc.iprog.dinnerplanner.android.view.course.CourseTopView;
-
-public class CourseSelectionActivity extends Activity{
+public class SelectedMenuActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_course_selection);
-        //setSpinnerValues();
-        new CourseTopView(findViewById(R.id.this_is_course_top_view_id));
-        new CourseDownView(findViewById(R.id.this_is_course_down_view_id));
+        setContentView(R.layout.activity_selected_menu);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_course_selection, menu);
+        getMenuInflater().inflate(R.menu.menu_selected_menu, menu);
         return true;
     }
 
@@ -41,10 +33,5 @@ public class CourseSelectionActivity extends Activity{
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void callSelectedMenuActivity(View view) {
-        Intent intent = new Intent(this, SelectedMenuActivity.class);
-        startActivity(intent);
     }
 }

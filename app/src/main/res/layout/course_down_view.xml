@@ -122,5 +122,6 @@
         android:background="#801e04"
         android:textColor="#ffffff"
         android:layout_below="@id/horizontalscroll_dessert"
+        android:onClick="callSelectedMenuActivity"
         />
 </RelativeLayout>

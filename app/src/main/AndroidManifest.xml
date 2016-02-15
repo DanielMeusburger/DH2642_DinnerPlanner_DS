@@ -24,6 +24,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="se.kth.csc.iprog.dinnerplanner.android.MainActivity" />
         </activity>
+        <activity
+            android:name=".SelectedMenuActivity"
+            android:label="@string/title_activity_selected_menu" >
+        </activity>
     </application>
 
 </manifest>

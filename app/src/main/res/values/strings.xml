@@ -19,5 +19,6 @@
         <item>9</item>
         <item>10</item>
     </string-array>
+    <string name="title_activity_selected_menu">DinnerPlanner</string>
 
 </resources>
