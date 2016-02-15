@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import se.kth.csc.iprog.dinnerplanner.android.view.course.CourseSelectionActivity;
 import se.kth.csc.iprog.dinnerplanner.android.view.StartView;
 
 

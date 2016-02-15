@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:layout_below="@id/v_line"
     android:id="@+id/this_is_course_down_view_id" >
 
     <TextView
@@ -13,7 +12,6 @@
         android:text="Starter"
         android:layout_alignParentLeft="true"
         android:textSize="9pt"
-        android:layout_below="@id/v_line"
         android:paddingTop="10dp"
         android:textStyle="bold"
         >

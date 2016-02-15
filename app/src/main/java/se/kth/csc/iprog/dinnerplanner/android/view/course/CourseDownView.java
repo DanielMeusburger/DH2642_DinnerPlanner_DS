@@ -25,7 +25,6 @@ public class CourseDownView {
 
     private void setStarterScroll(int linearId){
         int[] drawables = {R.drawable.icecream,R.drawable.meatballs,R.drawable.toast,R.drawable.bakedbrie};
-
         LinearLayout layout = (LinearLayout) view.findViewById(linearId);
         for (int i = 0; i < drawables.length; i++) {
             ImageView imageView = new ImageView(view.getContext());
@@ -37,5 +36,6 @@ public class CourseDownView {
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             layout.addView(imageView);
         }
+
     }
 }
