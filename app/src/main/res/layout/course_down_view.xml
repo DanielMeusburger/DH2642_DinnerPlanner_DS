@@ -23,7 +23,7 @@
         android:paddingTop="10dp"
         android:fillViewport="true"
         android:maxHeight="100px"
-        android:layout_below="@+id/id_starter">
+        android:layout_below="@id/id_starter">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
         android:paddingTop="10dp"
         android:fillViewport="true"
         android:maxHeight="100px"
-        android:layout_below="@+id/id_maincourse">
+        android:layout_below="@id/id_maincourse">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
         android:paddingTop="10dp"
         android:fillViewport="true"
         android:maxHeight="100px"
-        android:layout_below="@+id/id_dessert">
+        android:layout_below="@id/id_dessert">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -121,6 +121,6 @@
         android:layout_centerHorizontal="true"
         android:background="#801e04"
         android:textColor="#ffffff"
-        android:layout_below="@+id/horizontalscroll_dessert"
+        android:layout_below="@id/horizontalscroll_dessert"
         />
 </RelativeLayout>

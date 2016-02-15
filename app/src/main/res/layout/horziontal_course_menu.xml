@@ -17,7 +17,7 @@
         android:id="@+id/id_menu_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ice cream"
+        android:text="Not Available"
         android:layout_alignParentLeft="true"
         android:textSize="6pt"
         android:paddingRight="10dp"

@@ -42,7 +42,6 @@ public class CourseDownView {
 
             TextView menu_text = (TextView) childView.findViewById(R.id.id_menu_text);
             menu_text.setText("LaIce");
-
             innerLayout.addView(childView);
         }
     }
