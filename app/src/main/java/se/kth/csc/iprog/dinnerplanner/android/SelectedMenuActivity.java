@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse.SelectedCourseTopView;
+
 public class SelectedMenuActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_menu);
+        new SelectedCourseTopView((findViewById(R.id.this_is_selected_course_top_view_id)));
     }
 
     @Override

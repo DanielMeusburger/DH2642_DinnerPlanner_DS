@@ -23,16 +23,16 @@
             >
         </Spinner>
 
-        <TextView android:text="Total Cost:"
-            android:layout_width="107dp"
+        <TextView android:text="Total Cost: 1250 Kr"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/id_totalCost"
             android:textSize="9pt"
             android:layout_toRightOf="@+id/participants_spinner"
-            android:paddingLeft="5dp"
-            android:layout_alignTop="@+id/id_price" />
+            android:paddingLeft="5dp" />
+            <!--android:layout_alignTop="@+id/id_price"-->
 
-        <TextView android:text="1240Kr"
+        <!--<TextView android:text="1240Kr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/id_price"
@@ -40,7 +40,7 @@
             android:layout_toRightOf="@+id/id_totalCost"
             android:layout_alignParentRight="true"
             android:paddingRight="5dp"
-            />
+            />-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="40dp"
