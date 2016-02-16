@@ -18,7 +18,7 @@ public class SelectedMenuActivity extends Activity {
         setContentView(R.layout.activity_selected_menu);
         DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
         new SelectedCourseTopView((findViewById(R.id.this_is_selected_course_top_view_id)));
-        new SelectedCourseDownView((findViewById(R.id.this_is_selected_course_down_view_id)));
+        new SelectedCourseDownView((findViewById(R.id.this_is_selected_course_down_view_id)), model);
         new TotalCostView(findViewById(R.id.this_is_total_cost_id), model);
     }
 
