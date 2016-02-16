@@ -22,7 +22,7 @@ public class CourseSelectionActivity extends Activity{
         //setSpinnerValues();
         DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
         new CourseTopView(findViewById(R.id.this_is_course_top_view_id));
-        new TotalCostView(findViewById(R.id.this_is_total_cost_id));
+        new TotalCostView(findViewById(R.id.this_is_total_cost_id), model);
         new CourseDownView(findViewById(R.id.this_is_course_down_view_id), model);
     }
 

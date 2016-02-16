@@ -94,14 +94,14 @@
                          android:layout_width="53dp"
                          android:layout_height="53dp"
                          android:id="@+id/starter_selected_item_img"
-                         android:background="@drawable/crostini"/>
+                         android:background="@drawable/chicken"/>
                  </LinearLayout>
                  <TextView
                      android:layout_width="match_parent"
                      android:layout_height="20dp"
                      android:id="@+id/starter_selected_item_text"
-                     android:text="Crostini"
-                     android:textSize="15sp"
+                     android:text="Chicken"
+                     android:textSize="12sp"
                      android:gravity="center"/>
              </LinearLayout>
              <LinearLayout
@@ -119,14 +119,14 @@
                          android:layout_width="53dp"
                          android:layout_height="53dp"
                          android:id="@+id/menu_selected_item_img"
-                         android:background="@drawable/chicken"/>
+                         android:background="@drawable/meatballs"/>
                  </LinearLayout>
                  <TextView
                      android:layout_width="match_parent"
                      android:layout_height="20dp"
                      android:id="@+id/menu_selected_item_text"
-                     android:text="Chicken"
-                     android:textSize="15sp"
+                     android:text="Meat balls"
+                     android:textSize="12sp"
                      android:gravity="center"/>
              </LinearLayout>
              <LinearLayout
@@ -152,7 +152,7 @@
                      android:layout_height="20dp"
                      android:id="@+id/dessert_selected_item_text"
                      android:text=""
-                     android:textSize="15sp"
+                     android:textSize="12sp"
                      android:gravity="center"/>
              </LinearLayout>
          </LinearLayout>
