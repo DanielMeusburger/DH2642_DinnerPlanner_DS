@@ -4,4 +4,51 @@
     android:id="@+id/this_is_selected_course_down_view_id">
 
 
+     <TextView
+         android:id="@+id/id_sectiontitle"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Ingredients"
+         android:layout_alignParentLeft="true"
+         android:textSize="9pt"
+         android:padding="5dp"
+         android:textStyle="bold"
+        />
+     <TextView
+         android:id="@+id/id_numberofpersons"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="4 pers"
+         android:layout_alignParentRight="true"
+         android:textSize="9pt"
+         android:textStyle="italic"
+         android:padding="5dp"
+        />
+
+     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:orientation="horizontal"
+         android:layout_below="@id/id_sectiontitle"
+         >
+
+         <TextView
+             android:id="@+id/id_listofingredients"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:text="Eggs\nMilk"
+             android:layout_alignParentLeft="true"
+             android:textSize="9pt"
+             android:paddingLeft="5dp"
+             android:layout_weight="1"
+             />
+         <TextView
+             android:id="@+id/id_quantityofingredients"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:text="2 pcs\n30ml"
+             android:textSize="9pt"
+             android:layout_weight="1"
+             />
+     </LinearLayout>
  </RelativeLayout>
