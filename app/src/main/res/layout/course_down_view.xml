@@ -18,14 +18,14 @@
     </TextView>
     <HorizontalScrollView
         android:id="@+id/horizontalscroll_starter"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:fillViewport="true"
         android:maxHeight="100px"
         android:layout_below="@id/id_starter">
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/id_linear_outer_starter">
@@ -54,7 +54,7 @@
     </TextView>
     <HorizontalScrollView
         android:id="@+id/horizontalscroll_maincourse"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:fillViewport="true"
@@ -62,7 +62,7 @@
         android:layout_below="@id/id_maincourse">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/id_linear_outer_main_course">
@@ -91,7 +91,7 @@
     </TextView>
     <HorizontalScrollView
         android:id="@+id/horizontalscroll_dessert"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:fillViewport="true"
@@ -99,7 +99,7 @@
         android:layout_below="@id/id_dessert">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/id_linear_outer_dessert">

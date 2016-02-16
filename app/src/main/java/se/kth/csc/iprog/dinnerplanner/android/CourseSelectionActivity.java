@@ -9,6 +9,7 @@ import android.view.View;
 
 import se.kth.csc.iprog.dinnerplanner.android.view.course.CourseDownView;
 import se.kth.csc.iprog.dinnerplanner.android.view.course.CourseTopView;
+import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
 public class CourseSelectionActivity extends Activity{
 
@@ -17,8 +18,9 @@ public class CourseSelectionActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_selection);
         //setSpinnerValues();
+        DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
         new CourseTopView(findViewById(R.id.this_is_course_top_view_id));
-        new CourseDownView(findViewById(R.id.this_is_course_down_view_id));
+        new CourseDownView(findViewById(R.id.this_is_course_down_view_id), model);
     }
 
     @Override
