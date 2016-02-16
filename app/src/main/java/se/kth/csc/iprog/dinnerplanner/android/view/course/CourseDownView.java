@@ -40,8 +40,6 @@ public class CourseDownView {
         LinearLayout innerLayout = (LinearLayout) view.findViewById(linearId);
         LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
 
-        //int[] drawables = {R.drawable.icecream, R.drawable.meatballs, R.drawable.toast, R.drawable.bakedbrie};
-
         if(items != null && !items.isEmpty()){
             for(Dish dish : items){
                 LinearLayout childView = (LinearLayout) inflater.inflate(R.layout.horziontal_course_menu, null);
@@ -49,7 +47,6 @@ public class CourseDownView {
                 String image_name = dish.getImage();
                 int index = image_name.indexOf(".");
                 image_name = image_name.substring(0,index);
-                System.out.println(">>>>>>>>>>>>>>>>>"+image_name);
                 menu_image.setImageResource(childView.getResources().getIdentifier(image_name, "drawable", childView.getContext().getPackageName()));
 
                 TextView menu_text = (TextView) childView.findViewById(R.id.id_menu_text);
@@ -57,16 +54,8 @@ public class CourseDownView {
                 innerLayout.addView(childView);
             }
         }
-        /*for (int i = 0; i < drawables.length; i++) {
-            LinearLayout childView = (LinearLayout) inflater.inflate(R.layout.horziontal_course_menu, null);
-            ImageView menu_image = (ImageView) childView.findViewById(R.id.menu_image);
-            menu_image.setImageResource(drawables[i]);
-
-            TextView menu_text = (TextView) childView.findViewById(R.id.id_menu_text);
-            menu_text.setText("LaIce");
-            innerLayout.addView(childView);
-        }*/
     }
+    
     /*private void setStarterScroll(int linearId){
         int[] drawables = {R.drawable.icecream,R.drawable.meatballs,R.drawable.toast,R.drawable.bakedbrie};
         LinearLayout layout = (LinearLayout) view.findViewById(linearId);

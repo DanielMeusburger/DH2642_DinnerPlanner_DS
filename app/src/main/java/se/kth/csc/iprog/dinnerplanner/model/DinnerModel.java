@@ -74,7 +74,21 @@ public class DinnerModel implements IDinnerModel{
 		dish2.addIngredient(dish2ing10);
 		dish2.addIngredient(dish2ing11);
 		dishes.add(dish2);
-		
+
+		Dish dish3 = new Dish("Ice Cream",Dish.DESERT,"icecream.jpg","In a medium bowl, mix together the brown sugar, white sugar, and butter until smooth. Stir in vanilla and water. Mix in the flour until well blended. Shape into a loaf or log, and freeze for 1 to 2 hours.");
+		Ingredient dish3ing1 = new Ingredient("all-purpose flour",0.5,"",1);
+		Ingredient dish3ing2 = new Ingredient("milk",30,"ml",6);
+		Ingredient dish3ing3 = new Ingredient("vanilla extract",2,"spoons",1);
+		Ingredient dish3ing4 = new Ingredient("butter",0.5,"g",12);
+		Ingredient dish3ing5 = new Ingredient("white sugar",2,"spoons",2);
+		dish3.addIngredient(dish3ing1);
+		dish3.addIngredient(dish3ing2);
+		dish3.addIngredient(dish3ing3);
+		dish3.addIngredient(dish3ing4);
+		dish3.addIngredient(dish3ing5);
+		dishes.add(dish3);
+
+
 	}
 	
 	/**
