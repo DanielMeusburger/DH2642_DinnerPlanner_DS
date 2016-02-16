@@ -136,6 +136,11 @@ public class DinnerModel implements IDinnerModel{
 		this.numberOfGuests = numberOfGuests;
 	}
 
+	/**
+	 * Returns the selected Dish of specific type. (1 = starter, 2 = main, 3 = desert).
+	 * @param type
+	 * @return
+	 */
 	@Override
 	public Dish getSelectedDish(int type) {
 		Set<Dish> selectedDish = getDishesOfType(type);
@@ -152,14 +157,13 @@ public class DinnerModel implements IDinnerModel{
 
 	@Override
 	public Set<Ingredient> getAllIngredients() {
-		Iterator<Dish> iterator = fullMenu.iterator();
 		Set<Ingredient> allIngredients = new HashSet<Ingredient>();
-		while(iterator.hasNext()) {
-			Dish menu = iterator.next();
-			//allIngredients.addAll(menu.getIngredients());
-			Set<Ingredient> ingredients = menu.getIngredients();
-			addSimilarIngredients(ingredients);
-			//To-Do
+		if(fullMenu != null && !fullMenu.isEmpty()){
+			for(Dish dish : fullMenu){
+				Set<Ingredient> ingredients = dish.getIngredients();
+				addSimilarIngredients(ingredients);
+				//TODO
+			}
 		}
 		return null;
 	}
