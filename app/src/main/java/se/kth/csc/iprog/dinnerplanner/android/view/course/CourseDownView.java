@@ -55,7 +55,7 @@ public class CourseDownView {
             }
         }
     }
-    
+
     /*private void setStarterScroll(int linearId){
         int[] drawables = {R.drawable.icecream,R.drawable.meatballs,R.drawable.toast,R.drawable.bakedbrie};
         LinearLayout layout = (LinearLayout) view.findViewById(linearId);
