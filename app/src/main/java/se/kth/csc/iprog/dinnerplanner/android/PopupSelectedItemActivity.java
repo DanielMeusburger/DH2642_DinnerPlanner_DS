@@ -1,35 +1,25 @@
 package se.kth.csc.iprog.dinnerplanner.android;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import se.kth.csc.iprog.dinnerplanner.android.view.course.CourseDownView;
-import se.kth.csc.iprog.dinnerplanner.android.view.course.CourseTopView;
-import se.kth.csc.iprog.dinnerplanner.android.view.course.TotalCostView;
 import se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse.PopupSelectedItemView;
-import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
-public class CourseSelectionActivity extends Activity{
+public class PopupSelectedItemActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_course_selection);
-        //setSpinnerValues();
-        DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
-        new CourseTopView(findViewById(R.id.this_is_course_top_view_id));
-        new TotalCostView(findViewById(R.id.this_is_total_cost_id));
-        new CourseDownView(findViewById(R.id.this_is_course_down_view_id), model);
+        setContentView(R.layout.activity_popup_selected_item);
+        new PopupSelectedItemView(findViewById(R.id.this_is_id_popup_selected_item));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_course_selection, menu);
+        getMenuInflater().inflate(R.menu.menu_popup_selected_item, menu);
         return true;
     }
 
@@ -46,10 +36,5 @@ public class CourseSelectionActivity extends Activity{
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void callSelectedMenuActivity(View view) {
-        Intent intent = new Intent(this, PopupSelectedItemActivity.class);
-        startActivity(intent);
     }
 }

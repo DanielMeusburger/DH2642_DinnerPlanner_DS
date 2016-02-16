@@ -20,5 +20,6 @@
         <item>10</item>
     </string-array>
     <string name="title_activity_selected_menu">DinnerPlanner</string>
+    <string name="title_activity_popup_selected_item">DinnerPlanner</string>
 
 </resources>
