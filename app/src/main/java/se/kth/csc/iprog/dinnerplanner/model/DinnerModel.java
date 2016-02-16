@@ -88,7 +88,6 @@ public class DinnerModel implements IDinnerModel{
 		dish3.addIngredient(dish3ing5);
 		dishes.add(dish3);
 
-
 	}
 	
 	/**
