@@ -17,7 +17,6 @@ public class DinnerModel implements IDinnerModel{
 	 * for the dinner planner (number of guests, selected dishes, etc.). 
 	 */
 	
-	
 	/**
 	 * The constructor of the overall model. Set the default values here
 	 */
@@ -156,23 +155,72 @@ public class DinnerModel implements IDinnerModel{
 
 	@Override
 	public Set<Ingredient> getAllIngredients() {
+		boolean ingredientIncluded = false;
 		Set<Ingredient> allIngredients = new HashSet<Ingredient>();
+		allIngredients.clear();
 		if(fullMenu != null && !fullMenu.isEmpty()){
 			for(Dish dish : fullMenu){
-				Set<Ingredient> ingredients = dish.getIngredients();
-				addSimilarIngredients(ingredients);
-				//TODO
+				System.out.println(">>>>>>>>>>>" + dish.getName());
+				Set<Ingredient> newIngredients = dish.getIngredients();
+				//allIngredients = addSimilarIngredients(allIngredients, ingredients);
+				System.out.println(">>>>>>>> New Ingredient Set Size: " + newIngredients.size());
+				System.out.println(">>>>>>>> AllIngredients Size: " + allIngredients.size());
+				if(newIngredients != null && !newIngredients.isEmpty()) {
+					if(allIngredients != null && !allIngredients.isEmpty()) {
+						for (Ingredient newIngredient : newIngredients) {
+							System.out.println("STEP 2: " + newIngredient.getName());
+							Iterator<Ingredient> iterator = allIngredients.iterator();
+								ingredientIncluded = false;
+								while (iterator.hasNext() && ingredientIncluded == false) {
+									Ingredient existingIngredient = iterator.next();
+									if (existingIngredient.getName() == newIngredient.getName()) {
+										// PROBLEM - existingIngredient is permanently updated and therefore whenever the function is called it increases.
+										allIngredients.remove(existingIngredient);
+										existingIngredient.setQuantity(existingIngredient.getQuantity() + newIngredient.getQuantity());
+										existingIngredient.setPrice(existingIngredient.getPrice() + newIngredient.getPrice());
+										System.out.println(">>>>>>>>>>>" + existingIngredient.getName() + ", " + existingIngredient.getPrice() + ", " + existingIngredient.getQuantity());
+										allIngredients.add(existingIngredient);
+										ingredientIncluded = true;
+									}
+								}
+								if(ingredientIncluded == false) {
+									allIngredients.add(newIngredient);
+									System.out.println(">>>>>>> Added " + newIngredient.getName());
+								}
+						}
+					} else {
+						Iterator<Ingredient> iterator = newIngredients.iterator();
+						while (iterator.hasNext()) {
+							Ingredient newIngredient = iterator.next();
+							newIngredient.setQuantity(newIngredient.getQuantity());
+							newIngredient.setPrice(newIngredient.getPrice());
+							allIngredients.add(newIngredient);
+						}
+						System.out.println(">>>>>>>>>>> added " +  allIngredients.size() + " different ingr. to the empty allIngredients");
+					}
+				}
 			}
+			return allIngredients;
 		}
 		return null;
 	}
 
-
-
-
 	@Override
 	public float getTotalMenuPrice() {
+		double counter = 0;
+		Set<Ingredient> priceIngredients = getAllIngredients();
+		if(priceIngredients != null && !priceIngredients.isEmpty()) {
+			Iterator<Ingredient> iterator = priceIngredients.iterator();
+			while (iterator.hasNext()) {
+				Ingredient ingredient = iterator.next();
+				counter = counter + ingredient.getPrice();
+				System.out.println(counter);
+			}
+			float totalPrice = (float) counter;
+			return totalPrice;
+		}
 		return 0;
+
 	}
 
 	@Override
@@ -190,13 +238,6 @@ public class DinnerModel implements IDinnerModel{
 			if(menu.getType() == type){
 				iterator.remove();
 			}
-		}
-	}
-
-	private void addSimilarIngredients(Set<Ingredient> ingredients) {
-		if(ingredients != null && !ingredients.isEmpty())
-		for(Ingredient ingredirent : ingredients){
-		 //TODO
 		}
 	}
 }
