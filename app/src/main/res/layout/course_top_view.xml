@@ -15,12 +15,11 @@
 
         <Spinner
             android:id="@+id/participants_spinner"
-            android:layout_width="43dp"
-            android:layout_height="29dp"
-            android:layout_above="@+id/id_menu"
-            android:layout_toRightOf="@+id/id_participants"
-            android:paddingRight="15dp"
-            >
+            android:layout_width="50dp"
+            android:layout_height="32dp"
+            android:layout_toRightOf="@id/id_participants"
+            android:textSize="14pt"
+            android:gravity="center">
         </Spinner>
 
         <!--<TextView android:text="Total Cost: 1250 Kr"
@@ -33,7 +32,7 @@
      <include
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:layout_toRightOf="@+id/participants_spinner"
+         android:layout_toRightOf="@id/participants_spinner"
          android:paddingLeft="5dp"
          layout="@layout/total_cost" />
 
