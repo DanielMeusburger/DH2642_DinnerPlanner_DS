@@ -1,17 +1,21 @@
 package se.kth.csc.iprog.dinnerplanner.android.view.course;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Set;
 
+import se.kth.csc.iprog.dinnerplanner.android.PopupSelectedItemActivity;
 import se.kth.csc.iprog.dinnerplanner.android.R;
+import se.kth.csc.iprog.dinnerplanner.android.SelectedMenuActivity;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
@@ -43,12 +47,21 @@ public class CourseDownView {
         if(items != null && !items.isEmpty()){
             for(Dish dish : items){
                 LinearLayout childView = (LinearLayout) inflater.inflate(R.layout.horziontal_course_menu, null);
-                ImageView menu_image = (ImageView) childView.findViewById(R.id.menu_image);
-                String image_name = dish.getImage();
-                int index = image_name.indexOf(".");
-                image_name = image_name.substring(0,index);
-                menu_image.setImageResource(childView.getResources().getIdentifier(image_name, "drawable", childView.getContext().getPackageName()));
-
+                ImageView menuImage = (ImageView) childView.findViewById(R.id.menu_image);
+                String imageName = dish.getImage();
+                int index = imageName.indexOf(".");
+                imageName = imageName.substring(0,index);
+                menuImage.setImageResource(childView.getResources().getIdentifier(imageName, "drawable", childView.getContext().getPackageName()));
+                final String finalImageName = imageName;
+                menuImage.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        //menuImage.setBackgroundResource(R.drawable.rect_border_magenta);
+                        Activity courseSelectionActivity = (Activity) view.getContext();
+                        Intent intent = new Intent(courseSelectionActivity, PopupSelectedItemActivity.class);
+                        courseSelectionActivity.startActivity(intent);
+                        System.out.println("-----PRESSED-----" + finalImageName);
+                    }
+                });
                 TextView menu_text = (TextView) childView.findViewById(R.id.id_menu_text);
                 menu_text.setText(dish.getName());
                 innerLayout.addView(childView);

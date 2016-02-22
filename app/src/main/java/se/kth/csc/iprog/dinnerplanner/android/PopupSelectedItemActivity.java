@@ -1,9 +1,11 @@
 package se.kth.csc.iprog.dinnerplanner.android;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse.PopupSelectedItemView;
 
@@ -36,5 +38,10 @@ public class PopupSelectedItemActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void callBackActivity(View view) {
+        Intent intent = new Intent(this, CourseSelectionActivity.class);
+        startActivity(intent);
     }
 }
