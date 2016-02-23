@@ -1,6 +1,7 @@
 package se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,7 +37,7 @@ public class PopupSelectedItemView {
 			costPerSelectedItem.setText("(" + (int)pricePerPerson + "kr / Person)");
 
 			TextView totalCostPerSelectedItem = (TextView) view.findViewById(R.id.id_total_cost_selected_item);
-			totalCostPerSelectedItem.setText("("+(int)(pricePerPerson*model.getNumberOfGuests())+"kr");
+			totalCostPerSelectedItem.setText("Cost: " + (int) (pricePerPerson * model.getNumberOfGuests()) + "kr");
 
 		}
 	}

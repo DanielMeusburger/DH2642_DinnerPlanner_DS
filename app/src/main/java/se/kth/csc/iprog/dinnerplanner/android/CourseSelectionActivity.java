@@ -52,4 +52,16 @@ public class CourseSelectionActivity extends Activity{
         Intent intent = new Intent(this, SelectedMenuActivity.class);
         startActivity(intent);
     }
+
+    /*@Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 777)
+        {
+            String message=data.getStringExtra("MESSAGE");
+            System.out.println(message +" >>>>>>>>>");
+        }
+    }
+*/
 }

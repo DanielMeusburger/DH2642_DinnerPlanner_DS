@@ -237,7 +237,7 @@ public class DinnerModel implements IDinnerModel{
 
 	@Override
 	public float getTotalMenuPrice() {
-		double counter = 0;
+		/*double counter = 0;
 		Set<Ingredient> priceIngredients = getAllIngredients();
 		if(priceIngredients != null && !priceIngredients.isEmpty()) {
 			Iterator<Ingredient> iterator = priceIngredients.iterator();
@@ -249,8 +249,17 @@ public class DinnerModel implements IDinnerModel{
 			float totalPrice = (float) counter;
 			return totalPrice;
 		}
-		return 0;
-
+		return 0;*/
+		double totalPrice = 0.0;
+		if(fullMenu != null){
+			for(Dish menus : fullMenu){
+				Set<Ingredient> ingredients =  menus.getIngredients();
+				for(Ingredient ingredient : ingredients){
+					totalPrice += ingredient.getPrice();
+				}
+			}
+		}
+		return (float)totalPrice;
 	}
 
 	@Override

@@ -16,10 +16,8 @@ public class TotalCostView {
 		// store in the class the reference to the Android View
 		this.view = view;
 		this.model = model;
-		TextView example = (TextView) view.findViewById(R.id.id_totalCost);
-		example.setText("Total Cost : "+(int)model.getTotalMenuPrice()+" kr");
-
-		// Setup the rest of the view layout
+		TextView totalCost = (TextView) view.findViewById(R.id.id_totalCost);
+		totalCost.setText("Total Cost : "+((int)model.getTotalMenuPrice()* model.getNumberOfGuests())+" kr");
 	}
 
 }

@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import se.kth.csc.iprog.dinnerplanner.android.view.course.TotalCostView;
 import se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse.PopupSelectedItemView;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
@@ -17,9 +18,16 @@ public class PopupSelectedItemActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popup_selected_item);
-        DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
-        Dish selectedDish = (Dish) getIntent().getSerializableExtra(Dish.KEY);
+        final DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
+        final Dish selectedDish = (Dish) getIntent().getExtras().get(Dish.KEY);
         new PopupSelectedItemView(findViewById(R.id.this_is_id_popup_selected_item), model, selectedDish);
+        findViewById(R.id.id_button_choose).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                model.addDishToMenu(selectedDish);
+                finish();
+            }
+        });
     }
 
     @Override
