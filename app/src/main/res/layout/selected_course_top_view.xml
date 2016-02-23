@@ -94,13 +94,13 @@
                          android:layout_width="53dp"
                          android:layout_height="53dp"
                          android:id="@+id/starter_selected_item_img"
-                         android:background="@drawable/chicken"/>
+                         android:background="#800000"/>
                  </LinearLayout>
                  <TextView
                      android:layout_width="match_parent"
                      android:layout_height="20dp"
                      android:id="@+id/starter_selected_item_text"
-                     android:text="Chicken"
+                     android:text=""
                      android:textSize="12sp"
                      android:gravity="center"/>
              </LinearLayout>
@@ -119,13 +119,13 @@
                          android:layout_width="53dp"
                          android:layout_height="53dp"
                          android:id="@+id/menu_selected_item_img"
-                         android:background="@drawable/meatballs"/>
+                         android:background="#800000"/>
                  </LinearLayout>
                  <TextView
                      android:layout_width="match_parent"
                      android:layout_height="20dp"
                      android:id="@+id/menu_selected_item_text"
-                     android:text="Meat balls"
+                     android:text=""
                      android:textSize="12sp"
                      android:gravity="center"/>
              </LinearLayout>
