@@ -13,14 +13,15 @@ import se.kth.csc.iprog.dinnerplanner.model.Dish;
 /**
  * Created by sudarson on 09/02/16.
  */
-public class SelectedCourseTopView{
+public class SelectedCourseView {
     View view;
     DinnerModel model;
 
-    public SelectedCourseTopView(View view, DinnerModel model) {
+    public SelectedCourseView(View view, DinnerModel model) {
         this.view = view;
         this.model = model;
         setSelectedItemsInView();
+        SetIngredients();
     }
     private void setSelectedItemsInView() {
         Set<Dish> selectedDishes = model.getFullMenu();
@@ -49,5 +50,10 @@ public class SelectedCourseTopView{
         int index = imageName.indexOf(".");
         imageName = imageName.substring(0,index);
         img.setImageResource(view.getResources().getIdentifier(imageName, "drawable", view.getContext().getPackageName()));
+    }
+
+    private void SetIngredients(){
+        TextView numberOfGuest = (TextView) view.findViewById(R.id.id_numberofpersons);
+        numberOfGuest.setText(model.getNumberOfGuests() + " pers");
     }
 }

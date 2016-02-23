@@ -6,9 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse.SelectedCourseDownView;
 import se.kth.csc.iprog.dinnerplanner.android.view.course.TotalCostView;
-import se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse.SelectedCourseTopView;
+import se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse.SelectedCourseView;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
 public class SelectedMenuActivity extends Activity {
@@ -18,8 +17,8 @@ public class SelectedMenuActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_menu);
         DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
-        new SelectedCourseTopView((findViewById(R.id.this_is_selected_course_top_view_id)), model);
-        new SelectedCourseDownView((findViewById(R.id.this_is_selected_course_down_view_id)), model);
+        new SelectedCourseView((findViewById(R.id.this_is_selected_course_top_view_id)), model);
+        //new SelectedCourseDownView((findViewById(R.id.this_is_selected_course_down_view_id)), model);
         new TotalCostView(findViewById(R.id.this_is_total_cost_id), model);
 
         findViewById(R.id.ll_leftarrow).setOnClickListener(new View.OnClickListener() {
