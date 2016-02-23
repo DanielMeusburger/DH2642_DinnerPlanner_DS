@@ -53,11 +53,13 @@ public class CourseDownView {
                 imageName = imageName.substring(0,index);
                 menuImage.setImageResource(childView.getResources().getIdentifier(imageName, "drawable", childView.getContext().getPackageName()));
                 final String finalImageName = imageName;
+                final Dish selectedDish = dish;
                 menuImage.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         //menuImage.setBackgroundResource(R.drawable.rect_border_magenta);
                         Activity courseSelectionActivity = (Activity) view.getContext();
                         Intent intent = new Intent(courseSelectionActivity, PopupSelectedItemActivity.class);
+                        intent.putExtra(Dish.KEY, selectedDish);
                         courseSelectionActivity.startActivity(intent);
                         System.out.println("-----PRESSED-----" + finalImageName);
                     }

@@ -150,7 +150,37 @@ public class DinnerModel implements IDinnerModel{
 
 	@Override
 	public Set<Dish> getFullMenu() {
+		//fullMenu.addAll(getDishes());
 		return fullMenu;
+	}
+
+	public Set<Ingredient> getAllIngredients1(){
+		Set<Ingredient> allIngredients = new HashSet<Ingredient>();
+	    if(fullMenu != null && !fullMenu.isEmpty()){
+			for(Dish dish : fullMenu){
+				Set<Ingredient> ingredients = dish.getIngredients();
+				addSimilarIngredients(ingredients, allIngredients);
+			}
+		}
+		for(Ingredient ingredient : allIngredients){
+			System.out.println("Name : "+ingredient.getName()+" ,Price : "+ingredient.getPrice()+ " ,quantity = "+ingredient.getQuantity());
+		}
+		return allIngredients;
+	}
+
+	public void addSimilarIngredients(Set<Ingredient> ingredients, Set<Ingredient> allIngredients){
+		if(allIngredients.isEmpty()) {
+			for (Ingredient allIngredient : allIngredients) {
+				for (Ingredient ingredient : ingredients) {
+					if (ingredient.getName().equals(allIngredient.getName())) {
+						allIngredient.setQuantity(allIngredient.getQuantity() + ingredient.getQuantity());
+						allIngredient.setPrice(allIngredient.getPrice() + ingredient.getPrice());
+					}
+				}
+			}
+		}else if(allIngredients.containsAll(ingredients)){
+
+		}
 	}
 
 	@Override
@@ -160,11 +190,11 @@ public class DinnerModel implements IDinnerModel{
 		allIngredients.clear();
 		if(fullMenu != null && !fullMenu.isEmpty()){
 			for(Dish dish : fullMenu){
-				System.out.println(">>>>>>>>>>>" + dish.getName());
+				//System.out.println(">>>>>>>>>>>" + dish.getName());
 				Set<Ingredient> newIngredients = dish.getIngredients();
 				//allIngredients = addSimilarIngredients(allIngredients, ingredients);
-				System.out.println(">>>>>>>> New Ingredient Set Size: " + newIngredients.size());
-				System.out.println(">>>>>>>> AllIngredients Size: " + allIngredients.size());
+				//System.out.println(">>>>>>>> New Ingredient Set Size: " + newIngredients.size());
+				//System.out.println(">>>>>>>> AllIngredients Size: " + allIngredients.size());
 				if(newIngredients != null && !newIngredients.isEmpty()) {
 					if(allIngredients != null && !allIngredients.isEmpty()) {
 						for (Ingredient newIngredient : newIngredients) {
@@ -178,14 +208,14 @@ public class DinnerModel implements IDinnerModel{
 										allIngredients.remove(existingIngredient);
 										existingIngredient.setQuantity(existingIngredient.getQuantity() + newIngredient.getQuantity());
 										existingIngredient.setPrice(existingIngredient.getPrice() + newIngredient.getPrice());
-										System.out.println(">>>>>>>>>>>" + existingIngredient.getName() + ", " + existingIngredient.getPrice() + ", " + existingIngredient.getQuantity());
+										//System.out.println(">>>>>>>>>>>" + existingIngredient.getName() + ", " + existingIngredient.getPrice() + ", " + existingIngredient.getQuantity());
 										allIngredients.add(existingIngredient);
 										ingredientIncluded = true;
 									}
 								}
 								if(ingredientIncluded == false) {
 									allIngredients.add(newIngredient);
-									System.out.println(">>>>>>> Added " + newIngredient.getName());
+									//System.out.println(">>>>>>> Added " + newIngredient.getName());
 								}
 						}
 					} else {
@@ -196,7 +226,7 @@ public class DinnerModel implements IDinnerModel{
 							newIngredient.setPrice(newIngredient.getPrice());
 							allIngredients.add(newIngredient);
 						}
-						System.out.println(">>>>>>>>>>> added " +  allIngredients.size() + " different ingr. to the empty allIngredients");
+						//System.out.println(">>>>>>>>>>> added " +  allIngredients.size() + " different ingr. to the empty allIngredients");
 					}
 				}
 			}
@@ -239,5 +269,16 @@ public class DinnerModel implements IDinnerModel{
 				iterator.remove();
 			}
 		}
+	}
+
+	public double getIndividualItemCost(Dish dish){
+		double price = 0.0;
+		if(dish != null){
+			Set<Ingredient> ingredients = dish.getIngredients();
+			for(Ingredient ingredient : ingredients){
+				price += ingredient.getPrice();
+			}
+		}
+		return price;
 	}
 }

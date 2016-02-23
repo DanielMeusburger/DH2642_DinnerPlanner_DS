@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse.PopupSelectedItemView;
+import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
 public class PopupSelectedItemActivity extends Activity {
 
@@ -15,7 +17,9 @@ public class PopupSelectedItemActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popup_selected_item);
-        new PopupSelectedItemView(findViewById(R.id.this_is_id_popup_selected_item));
+        DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
+        Dish selectedDish = (Dish) getIntent().getSerializableExtra(Dish.KEY);
+        new PopupSelectedItemView(findViewById(R.id.this_is_id_popup_selected_item), model, selectedDish);
     }
 
     @Override
@@ -41,7 +45,8 @@ public class PopupSelectedItemActivity extends Activity {
     }
 
     public void callBackActivity(View view) {
-        Intent intent = new Intent(this, CourseSelectionActivity.class);
-        startActivity(intent);
+        /*Intent intent = new Intent(this, CourseSelectionActivity.class);
+        startActivity(intent);*/
+        finish();
     }
 }
