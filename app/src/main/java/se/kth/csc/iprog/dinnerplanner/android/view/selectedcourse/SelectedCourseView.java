@@ -64,22 +64,53 @@ public class SelectedCourseView {
         numberOfGuest.setText(model.getNumberOfGuests() + " pers");
 
         final ImageView imgIngredients = (ImageView) view.findViewById(R.id.img_ingredients);
-        final ImageView starterIngredients = (ImageView) view.findViewById(R.id.starter_selected_item_img);
+        final ImageView starterImg = (ImageView) view.findViewById(R.id.starter_selected_item_img);
+        final ImageView mainImg = (ImageView) view.findViewById(R.id.menu_selected_item_img);
+        final ImageView desertImg = (ImageView) view.findViewById(R.id.dessert_selected_item_img);
         addIngredientsToView();
         imgIngredients.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                ((LinearLayout)view.findViewById(R.id.border_ingredients)).setBackgroundColor(Color.parseColor("#800000"));
-                ((LinearLayout)view.findViewById(R.id.id_border_starter)).setBackgroundColor(Color.parseColor("#00800000"));
+                setColorForBorder("#800000", "#00800000", "#00800000", "#00800000");
                 addIngredientsToView();
             }
         });
 
-        starterIngredients.setOnClickListener(new View.OnClickListener() {
+        starterImg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                ((LinearLayout)view.findViewById(R.id.border_ingredients)).setBackgroundColor(Color.parseColor("#00800000"));
-                ((LinearLayout)view.findViewById(R.id.id_border_starter)).setBackgroundColor(Color.parseColor("#800000"));
-                Dish dish = model.getDescription();
-                addDescriptionToView(dish.getDescription());
+                setColorForBorder("#00800000","#800000","#00800000","#00800000");
+                Set<Dish> dishes = model.getFullMenu();
+                for (Dish dish : dishes) {
+                    if (dish.getType() == Dish.STARTER) {
+                        addDescriptionToView(dish.getDescription());
+                        break;
+                    }
+                }
+            }
+        });
+
+        mainImg.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setColorForBorder("#00800000","#00800000","#800000","#00800000");
+                Set<Dish> dishes = model.getFullMenu();
+                for (Dish dish : dishes) {
+                    if (dish.getType() == Dish.MAIN) {
+                        addDescriptionToView(dish.getDescription());
+                        break;
+                    }
+                }
+            }
+        });
+
+        desertImg.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setColorForBorder("#00800000", "#00800000", "#00800000", "#800000");
+                Set<Dish> dishes = model.getFullMenu();
+                for (Dish dish : dishes) {
+                    if (dish.getType() == Dish.DESERT) {
+                        addDescriptionToView(dish.getDescription());
+                        break;
+                    }
+                }
             }
         });
     }
@@ -107,5 +138,12 @@ public class SelectedCourseView {
         description.setText(descrption);
         outerView.removeAllViews();
         outerView.addView(childView);
+    }
+
+    public void setColorForBorder(String ingredients, String stater, String main, String desert){
+        ((LinearLayout) view.findViewById(R.id.border_ingredients)).setBackgroundColor(Color.parseColor(ingredients));
+        ((LinearLayout) view.findViewById(R.id.id_border_starter)).setBackgroundColor(Color.parseColor(stater));
+        ((LinearLayout) view.findViewById(R.id.border_main)).setBackgroundColor(Color.parseColor(main));
+        ((LinearLayout) view.findViewById(R.id.border_desert)).setBackgroundColor(Color.parseColor(desert));
     }
 }

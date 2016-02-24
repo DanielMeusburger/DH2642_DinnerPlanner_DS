@@ -116,6 +116,7 @@
                      android:layout_height="60dp"
                      android:background="#00800000"
                      android:gravity="center"
+                     android:id="@+id/border_main"
                      >
                      <ImageView
                          android:layout_width="53dp"
@@ -140,14 +141,15 @@
                      android:layout_width="60dp"
                      android:layout_height="60dp"
                      android:background="#00800000"
-
+                     android:id="@+id/border_desert"
                      android:gravity="center"
                      >
                      <ImageView
                          android:layout_width="53dp"
                          android:layout_height="53dp"
                          android:id="@+id/dessert_selected_item_img"
-                         android:background="#800000"/>
+                         android:background="#800000"
+                         />
                  </LinearLayout>
                  <TextView
                      android:layout_width="match_parent"
