@@ -6,16 +6,14 @@
     android:clickable="true">
 
     <TextView
-        android:id="@+id/id_listofingredients"
-        android:layout_width="fill_parent"
+        android:id="@+id/id_names_ingredients"
+        android:layout_width="221dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:textSize="9pt"
-        android:paddingLeft="5dp"
-        android:layout_weight="1"
-        />
+        android:paddingLeft="5dp" />
     <TextView
-        android:id="@+id/id_price_ingredients"
+        android:id="@+id/id_quantity_ingredients"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text=""

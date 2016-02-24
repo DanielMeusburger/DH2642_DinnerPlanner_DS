@@ -198,7 +198,7 @@
              />
          <TextView
              android:id="@+id/id_numberofpersons"
-             android:layout_width="240dp"
+             android:layout_width="220dp"
              android:layout_height="wrap_content"
              android:text="4 pers"
              android:layout_alignParentRight="true"

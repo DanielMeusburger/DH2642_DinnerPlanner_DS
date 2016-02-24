@@ -118,14 +118,14 @@ public class SelectedCourseView {
     public void addIngredientsToView(){
         LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
         LinearLayout outerView = (LinearLayout) view.findViewById(R.id.id_linear_outer_ingredients);
-        Set<Ingredient> ingredients = model.getAllIngredients1();
+        Set<Ingredient> ingredients = model.getAllIngredients();
         outerView.removeAllViews();
         for(Ingredient ingredient : ingredients){
             LinearLayout childView = (LinearLayout) inflater.inflate(R.layout.horziontal_ingredients, null);
-            TextView name = (TextView) childView.findViewById(R.id.id_listofingredients);
+            TextView name = (TextView) childView.findViewById(R.id.id_names_ingredients);
             name.setText(ingredient.getName());
-            TextView value = (TextView) childView.findViewById(R.id.id_price_ingredients);
-            value.setText((int) (ingredient.getQuantity() * model.getNumberOfGuests())+" "+ingredient.getUnit());
+            TextView value = (TextView) childView.findViewById(R.id.id_quantity_ingredients);
+            value.setText(ingredient.getQuantity()+" "+ingredient.getUnit());
             outerView.addView(childView);
         }
     }
