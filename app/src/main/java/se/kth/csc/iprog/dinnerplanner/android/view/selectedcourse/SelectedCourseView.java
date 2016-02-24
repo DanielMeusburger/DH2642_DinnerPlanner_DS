@@ -78,7 +78,8 @@ public class SelectedCourseView {
             public void onClick(View v) {
                 ((LinearLayout)view.findViewById(R.id.border_ingredients)).setBackgroundColor(Color.parseColor("#00800000"));
                 ((LinearLayout)view.findViewById(R.id.id_border_starter)).setBackgroundColor(Color.parseColor("#800000"));
-                addDescriptionToView();
+                Dish dish = model.getDescription();
+                addDescriptionToView(dish.getDescription());
             }
         });
     }
@@ -98,13 +99,12 @@ public class SelectedCourseView {
         }
     }
 
-    public void addDescriptionToView(){
+    public void addDescriptionToView(String descrption){
         LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
         LinearLayout outerView = (LinearLayout) view.findViewById(R.id.id_linear_outer_ingredients);
-        Dish dish = model.getDescription();
         LinearLayout childView = (LinearLayout) inflater.inflate(R.layout.horziontal_description, null);
         TextView description = (TextView) childView.findViewById(R.id.id_course_description);
-        description.setText(dish.getDescription());
+        description.setText(descrption);
         outerView.removeAllViews();
         outerView.addView(childView);
     }
