@@ -44,6 +44,7 @@
              android:layout_width="50dp"
              android:layout_height="50dp"
              android:background="#800000"
+             android:id="@+id/border_ingredients"
              android:gravity="center"
              >
              <ImageView
@@ -79,7 +80,8 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_marginTop="10dp"
-             android:orientation="horizontal">
+             android:orientation="horizontal"
+             >
              <LinearLayout
                  android:layout_width="60dp"
                  android:layout_height="80dp"
@@ -89,7 +91,7 @@
                      android:layout_height="60dp"
                      android:background="#00800000"
                      android:gravity="center"
-                     >
+                     android:id="@+id/id_border_starter">
                      <ImageView
                          android:layout_width="53dp"
                          android:layout_height="53dp"
@@ -207,28 +209,16 @@
          <LinearLayout
              android:layout_width="fill_parent"
              android:layout_height="fill_parent"
-             android:orientation="horizontal"
+             android:orientation="vertical"
              android:layout_below="@id/id_sectiontitle"
              >
 
-             <TextView
-                 android:id="@+id/id_listofingredients"
+             <LinearLayout
                  android:layout_width="fill_parent"
                  android:layout_height="wrap_content"
-                 android:text="Eggs\nMilk"
-                 android:layout_alignParentLeft="true"
-                 android:textSize="9pt"
-                 android:paddingLeft="5dp"
-                 android:layout_weight="1"
-                 />
-             <TextView
-                 android:id="@+id/id_quantityofingredients"
-                 android:layout_width="fill_parent"
-                 android:layout_height="wrap_content"
-                 android:text="2 pcs\n30ml"
-                 android:textSize="9pt"
-                 android:layout_weight="1"
-                 />
+                 android:orientation="vertical"
+                 android:id="@+id/id_linear_outer_ingredients">
+             </LinearLayout>
          </LinearLayout>
          </LinearLayout>
      </ScrollView>
