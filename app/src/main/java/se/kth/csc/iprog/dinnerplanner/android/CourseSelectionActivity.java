@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Observable;
@@ -28,8 +29,8 @@ public class CourseSelectionActivity extends Activity implements Observer{
         model.addObserver(this);
         CourseTopView topView = new CourseTopView(findViewById(R.id.this_is_course_top_view_id), model);
         new TotalCostView(findViewById(R.id.this_is_total_cost_id), model);
-        new CourseDownView(findViewById(R.id.this_is_course_down_view_id), model);
-        new CourseSelectionController(topView, model);
+        CourseDownView downView = new CourseDownView(findViewById(R.id.this_is_course_down_view_id), model);
+        new CourseSelectionController(topView, downView,model);
     }
 
     @Override
@@ -62,7 +63,12 @@ public class CourseSelectionActivity extends Activity implements Observer{
     @Override
     public void update(Observable observable, Object o) {
         //Toast.makeText(this, "I am notified" + ((DinnerModel)o).getNumberOfGuests(),Toast.LENGTH_SHORT).show();
-        new TotalCostView(findViewById(R.id.this_is_total_cost_id), (DinnerModel) o);
+        if(observable instanceof DinnerModel) {
+            DinnerModel model = (DinnerModel)observable;
+            //new TotalCostView(findViewById(R.id.this_is_total_cost_id), (DinnerModel) observable);
+            TextView txtView = (TextView) findViewById(R.id.id_totalCost);
+            txtView.setText("Total Cost : "+((int)model.getTotalMenuPrice()* model.getNumberOfGuests())+" kr");
+        }
     }
 
     /*@Override

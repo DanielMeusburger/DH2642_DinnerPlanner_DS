@@ -134,7 +134,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
 	public void setNumberOfGuests(int numberOfGuests) {
 		this.numberOfGuests = numberOfGuests;
 		setChanged();
-		notifyObservers(this);
+		notifyObservers();
 	}
 
 	/**
@@ -234,7 +234,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
 		removeDishFromMenu(dish);
 		fullMenu.add(dish);
 		setChanged();
-		notifyObservers(this);
+		notifyObservers();
 	}
 
 	@Override
