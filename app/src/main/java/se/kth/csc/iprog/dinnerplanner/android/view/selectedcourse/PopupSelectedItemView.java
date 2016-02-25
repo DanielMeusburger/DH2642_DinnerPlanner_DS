@@ -1,5 +1,6 @@
 package se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse;
 
+import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,10 +15,14 @@ import se.kth.csc.iprog.dinnerplanner.model.Dish;
 public class PopupSelectedItemView {
 
 	View view;
+	public Button button_choose;
+	public Activity activity;
 
 	public PopupSelectedItemView(View view, DinnerModel model, Dish dish) {
 		// store in the class the reference to the Android View
 		this.view = view;
+		button_choose = (Button) view.findViewById(R.id.id_button_choose);
+		activity = (Activity) view.getContext();
 		setView(model, dish);
 	}
 

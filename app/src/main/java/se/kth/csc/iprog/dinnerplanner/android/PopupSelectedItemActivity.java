@@ -18,16 +18,10 @@ public class PopupSelectedItemActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popup_selected_item);
-        final DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
-        final Dish selectedDish = (Dish) getIntent().getExtras().get(Dish.KEY);
-        new PopupSelectedItemView(findViewById(R.id.this_is_id_popup_selected_item), model, selectedDish);
-        findViewById(R.id.id_button_choose).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                model.addDishToMenu(selectedDish);
-                finish();
-            }
-        });
+        DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
+        Dish selectedDish = (Dish) getIntent().getExtras().get(Dish.KEY);
+        PopupSelectedItemView popUp = new PopupSelectedItemView(findViewById(R.id.this_is_id_popup_selected_item), model, selectedDish);
+        new PopUpController(popUp, model, selectedDish);
     }
 
     @Override
