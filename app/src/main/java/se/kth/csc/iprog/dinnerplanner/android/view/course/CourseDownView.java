@@ -3,6 +3,7 @@ package se.kth.csc.iprog.dinnerplanner.android.view.course;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,21 +46,27 @@ public class CourseDownView {
         LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
 
         if(items != null && !items.isEmpty()){
-            for(Dish dish : items){
-                LinearLayout childView = (LinearLayout) inflater.inflate(R.layout.horziontal_course_menu, null);
-                ImageView menuImage = (ImageView) childView.findViewById(R.id.menu_image);
+            for(final Dish dish : items){
+                final LinearLayout childView = (LinearLayout) inflater.inflate(R.layout.horziontal_course_menu, null);
+                final ImageView menuImage = (ImageView) childView.findViewById(R.id.menu_image);
                 String imageName = dish.getImage();
                 int index = imageName.indexOf(".");
                 imageName = imageName.substring(0,index);
                 menuImage.setImageResource(childView.getResources().getIdentifier(imageName, "drawable", childView.getContext().getPackageName()));
-                final Dish selectedDish = dish;
                 menuImage.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         //menuImage.setBackgroundResource(R.drawable.rect_border_magenta);
-                        Activity courseSelectionActivity = (Activity) view.getContext();
-                        Intent intent = new Intent(courseSelectionActivity, PopupSelectedItemActivity.class);
-                        intent.putExtra(Dish.KEY, selectedDish);
-                        courseSelectionActivity.startActivity(intent);
+                        /*if(model.getFullMenu().contains(dish)){
+                            System.out.println(">>><<<<><><><><><><><>"+dish.getName());
+                            menuImage.setBackgroundColor(Color.parseColor("#800000"));
+                            model.removeDishFromMenu(dish);
+                        }else{*/
+                            //childView.setBackgroundColor(Color.parseColor("#00800000"));
+                            Activity courseSelectionActivity = (Activity) view.getContext();
+                            Intent intent = new Intent(courseSelectionActivity, PopupSelectedItemActivity.class);
+                            intent.putExtra(Dish.KEY, dish);
+                            courseSelectionActivity.startActivity(intent);
+                        //}
                     }
                 });
                 TextView menu_text = (TextView) childView.findViewById(R.id.id_menu_text);
@@ -69,6 +76,27 @@ public class CourseDownView {
         }
     }
 
+    public void setBorderForDish(Dish dish){
+        LinearLayout linearLayout = null;
+        if(dish.getType() == Dish.STARTER){
+            linearLayout = (LinearLayout) view.findViewById(R.id.id_linear_outer_starter);
+        }else if(dish.getType() == Dish.MAIN){
+            linearLayout = (LinearLayout) view.findViewById(R.id.id_linear_outer_main_course);
+        }else if(dish.getType() == Dish.DESERT){
+            linearLayout = (LinearLayout) view.findViewById(R.id.id_linear_outer_dessert);
+        }
+        if(linearLayout != null) {
+            for (int i = 0; i < linearLayout.getChildCount(); ++i) {
+                View nextChild = linearLayout.getChildAt(i);
+                TextView menuText = (TextView) nextChild.findViewById(R.id.id_menu_text);
+                if (menuText.getText().equals(dish.getName())) {
+                    ((ImageView) nextChild.findViewById(R.id.menu_image)).setBackgroundColor(Color.parseColor("#800000"));
+                } else {
+                    ((ImageView) nextChild.findViewById(R.id.menu_image)).setBackgroundColor(Color.parseColor("#00800000"));
+                }
+            }
+        }
+    }
     /*private void setStarterScroll(int linearId){
         int[] drawables = {R.drawable.icecream,R.drawable.meatballs,R.drawable.toast,R.drawable.bakedbrie};
         LinearLayout layout = (LinearLayout) view.findViewById(linearId);

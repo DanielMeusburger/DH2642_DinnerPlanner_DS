@@ -74,4 +74,16 @@ public class Dish implements Serializable{
 		return false;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Dish){
+			return this.name.equals(((Dish) o).getName());
+		}
+		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode() {
+		return this.name.hashCode();
+	}
 }

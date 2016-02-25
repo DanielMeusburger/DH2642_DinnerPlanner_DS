@@ -234,7 +234,7 @@ public class DinnerModel extends Observable implements IDinnerModel {
 		removeDishFromMenu(dish);
 		fullMenu.add(dish);
 		setChanged();
-		notifyObservers();
+		notifyObservers(dish);
 	}
 
 	@Override

@@ -17,8 +17,11 @@ import se.kth.csc.iprog.dinnerplanner.android.view.course.CourseTopView;
 import se.kth.csc.iprog.dinnerplanner.android.view.course.TotalCostView;
 import se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse.PopupSelectedItemView;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+import se.kth.csc.iprog.dinnerplanner.model.Dish;
 
 public class CourseSelectionActivity extends Activity implements Observer{
+
+    CourseDownView downView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,7 @@ public class CourseSelectionActivity extends Activity implements Observer{
         model.addObserver(this);
         CourseTopView topView = new CourseTopView(findViewById(R.id.this_is_course_top_view_id), model);
         new TotalCostView(findViewById(R.id.this_is_total_cost_id), model);
-        CourseDownView downView = new CourseDownView(findViewById(R.id.this_is_course_down_view_id), model);
+        downView = new CourseDownView(findViewById(R.id.this_is_course_down_view_id), model);
         new CourseSelectionController(topView, downView,model);
     }
 
@@ -68,6 +71,11 @@ public class CourseSelectionActivity extends Activity implements Observer{
             //new TotalCostView(findViewById(R.id.this_is_total_cost_id), (DinnerModel) observable);
             TextView txtView = (TextView) findViewById(R.id.id_totalCost);
             txtView.setText("Total Cost : "+((int)model.getTotalMenuPrice()* model.getNumberOfGuests())+" kr");
+
+            if(o instanceof Dish){
+                Dish dish = (Dish)o;
+                downView.setBorderForDish(dish);
+            }
         }
     }
 
