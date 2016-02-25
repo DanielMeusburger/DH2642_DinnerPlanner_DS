@@ -11,9 +11,9 @@ import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 /**
  * Created by sudarson on 09/02/16.
  */
-public class CourseTopView {
+public class CourseTopView{
     View view;
-    private Spinner spinner;
+    public Spinner spinner;
     private DinnerModel model;
 
     public CourseTopView(View view, DinnerModel model) {
@@ -29,7 +29,7 @@ public class CourseTopView {
                 R.array.participants_spinner, android.R.layout.simple_spinner_item);
         //ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(view.getContext(),android.R.layout.simple_spinner_item, items);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+       /* spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3)
@@ -41,6 +41,7 @@ public class CourseTopView {
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
             }
-        });
+        });*/
     }
+
 }

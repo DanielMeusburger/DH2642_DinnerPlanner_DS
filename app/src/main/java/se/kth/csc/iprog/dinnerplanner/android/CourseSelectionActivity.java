@@ -21,9 +21,10 @@ public class CourseSelectionActivity extends Activity{
         setContentView(R.layout.activity_course_selection);
         //setSpinnerValues();
         DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
-        new CourseTopView(findViewById(R.id.this_is_course_top_view_id), model);
+        CourseTopView topView = new CourseTopView(findViewById(R.id.this_is_course_top_view_id), model);
         new TotalCostView(findViewById(R.id.this_is_total_cost_id), model);
         new CourseDownView(findViewById(R.id.this_is_course_down_view_id), model);
+        new CourseSelectionController(topView, model);
     }
 
     @Override

@@ -130,12 +130,12 @@ public class SelectedCourseView {
         }
     }
 
-    public void addDescriptionToView(String descrption){
+    public void addDescriptionToView(String description){
         LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
         LinearLayout outerView = (LinearLayout) view.findViewById(R.id.id_linear_outer_ingredients);
         LinearLayout childView = (LinearLayout) inflater.inflate(R.layout.horziontal_description, null);
-        TextView description = (TextView) childView.findViewById(R.id.id_course_description);
-        description.setText(descrption);
+        TextView desc = (TextView) childView.findViewById(R.id.id_course_description);
+        desc.setText(description);
         outerView.removeAllViews();
         outerView.addView(childView);
     }

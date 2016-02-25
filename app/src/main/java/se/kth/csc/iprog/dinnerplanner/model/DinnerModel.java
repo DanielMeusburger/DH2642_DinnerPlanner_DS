@@ -154,48 +154,9 @@ public class DinnerModel implements IDinnerModel{
 		return fullMenu;
 	}
 
-	public Set<Ingredient> getAllIngredients1(){
-		Set<Ingredient> allIngredients = new HashSet<Ingredient>();
-	    /*if(fullMenu != null && !fullMenu.isEmpty()){
-			for(Dish dish : fullMenu){
-				Set<Ingredient> ingredients = dish.getIngredients();
-				addSimilarIngredients(ingredients, allIngredients);
-			}
-		}
-		for(Ingredient ingredient : allIngredients){
-			System.out.println("Name : "+ingredient.getName()+" ,Price : "+ingredient.getPrice()+ " ,quantity = "+ingredient.getQuantity());
-		}*/
-		addSimilarIngredients(null, allIngredients);
-		return allIngredients;
-	}
-
 	 public Dish getDescription(){
 		 return getDishesOfType(Dish.DESERT).iterator().next();
 	 }
-	public void addSimilarIngredients(Set<Ingredient> ingredients, Set<Ingredient> allIngredients){
-		/*if(allIngredients.isEmpty()) {
-			for (Ingredient allIngredient : allIngredients) {
-				for (Ingredient ingredient : ingredients) {
-					if (ingredient.getName().equals(allIngredient.getName())) {
-						allIngredient.setQuantity(allIngredient.getQuantity() + ingredient.getQuantity());
-						allIngredient.setPrice(allIngredient.getPrice() + ingredient.getPrice());
-					}
-				}
-			}
-		}else if(allIngredients.containsAll(ingredients)){
-
-		}*/
-		/*Ingredient dish3ing1 = new Ingredient("all-purpose flour",0.5,"",1);
-		Ingredient dish3ing2 = new Ingredient("milk",30,"ml",6);
-		Ingredient dish3ing3 = new Ingredient("vanilla extract",2,"spoons",1);
-		Ingredient dish3ing4 = new Ingredient("butter",0.5,"g",12);
-		Ingredient dish3ing5 = new Ingredient("white sugar",2,"spoons",2);
-		allIngredients.add(dish3ing1);
-		allIngredients.add(dish3ing2);
-		allIngredients.add(dish3ing3);
-		allIngredients.add(dish3ing4);
-		allIngredients.add(dish3ing5);*/
-	}
 
 	@Override
 	public Set<Ingredient> getAllIngredients() {
