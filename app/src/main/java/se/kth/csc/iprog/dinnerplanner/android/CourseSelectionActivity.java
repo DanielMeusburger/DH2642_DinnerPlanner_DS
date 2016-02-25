@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
+import java.util.Observable;
+import java.util.Observer;
 
 import se.kth.csc.iprog.dinnerplanner.android.view.course.CourseDownView;
 import se.kth.csc.iprog.dinnerplanner.android.view.course.CourseTopView;
@@ -13,7 +17,7 @@ import se.kth.csc.iprog.dinnerplanner.android.view.course.TotalCostView;
 import se.kth.csc.iprog.dinnerplanner.android.view.selectedcourse.PopupSelectedItemView;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
-public class CourseSelectionActivity extends Activity{
+public class CourseSelectionActivity extends Activity implements Observer{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,7 @@ public class CourseSelectionActivity extends Activity{
         setContentView(R.layout.activity_course_selection);
         //setSpinnerValues();
         DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
+        model.addObserver(this);
         CourseTopView topView = new CourseTopView(findViewById(R.id.this_is_course_top_view_id), model);
         new TotalCostView(findViewById(R.id.this_is_total_cost_id), model);
         new CourseDownView(findViewById(R.id.this_is_course_down_view_id), model);
@@ -52,6 +57,12 @@ public class CourseSelectionActivity extends Activity{
     public void callSelectedMenuActivity(View view) {
         Intent intent = new Intent(this, SelectedMenuActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+        //Toast.makeText(this, "I am notified" + ((DinnerModel)o).getNumberOfGuests(),Toast.LENGTH_SHORT).show();
+        new TotalCostView(findViewById(R.id.this_is_total_cost_id), (DinnerModel) o);
     }
 
     /*@Override
